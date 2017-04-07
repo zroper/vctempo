@@ -6,7 +6,7 @@
 // order, so if you add more events, make sure to keep them in the same order in the matlab translation code.  (
 // 2) This process relies heavily on globals (since it is grabbing stuff from all over the protocol).
 //
-// written by joshua.d.cosman@vanderbilt.edu 	January, 2014
+// written by joshua.d.cosman@vanderbilt.edu 	January, 2014; edited by Zachary J.J. Roper z.roper@vanderbilt.edu April, 2017
 
 
 declare int stop_sig_color_r, stop_sig_color_g, stop_sig_color_b;
@@ -30,7 +30,7 @@ declare INFOS();
 					Event_fifo[Set_event] = InfosZero + 999;						// 4000'set a strobe to identify the start of Search Vars (4000) not specfic to search and...	
 					Set_event = (Set_event + 1) % Event_fifo_N;						// ...incriment event queue.
 					
-					Event_fifo[Set_event] = ArrStruct + 4001;							// Set a strobe to identify the type of search (typical vs. contextual cue) and...	
+					Event_fifo[Set_event] = ArrStruct + 4001;						// Set a strobe to identify the type of search (typical vs. contextual cue) and...	
 					Set_event = (Set_event + 1) % Event_fifo_N;						// ...incriment event queue.
 					
 					Event_fifo[Set_event] = SearchType + 4050;						// Set a strobe to identify the type of search (homo, hetero, etc.) and...	
@@ -51,13 +51,13 @@ declare INFOS();
 					Event_fifo[Set_event] = SearchEcc + 4250;						// Set a strobe to identify Trial Type (random vs repeated displays) (set in SEL_LOCS)	
 					Set_event = (Set_event + 1) % Event_fifo_N;	
 					
-					Event_fifo[Set_event] = DistPres;								// Set a strobe to identify Singleton presence (set in LOC_RAND)	
+					Event_fifo[Set_event] = DistPres + 4300;						// Set a strobe to identify Singleton presence (set in LOC_RAND)	
 					Set_event = (Set_event + 1) % Event_fifo_N;						// ...incriment event
 					
-					Event_fifo[Set_event] = THemi;									// Set a strobe to identify the target hemifield (set in LOC_RAND)	
+					Event_fifo[Set_event] = THemi + 4350;							// Set a strobe to identify the target hemifield (set in LOC_RAND)	
 					Set_event = (Set_event + 1) % Event_fifo_N;						// ...incriment event
 					
-					Event_fifo[Set_event] = DHemi;									// Set a strobe to identify the distractor hemifield (set in LOC_RAND)	
+					Event_fifo[Set_event] = DHemi + 4400;							// Set a strobe to identify the distractor hemifield (set in LOC_RAND)	
 					Set_event = (Set_event + 1) % Event_fifo_N;						// ...incriment event
 					
 					Event_fifo[Set_event] = Rand_targ_angle + 5000;					// Set a strobe to identify actual target location	
